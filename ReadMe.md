@@ -148,6 +148,13 @@ Set-up & security
 **Important** : The Filemanager is designed to work without any special configuration but **using it without any configuration is VERY unsafe**.
 Please set-up your own **authentication function**, based on [default file](https://github.com/servocoder/RichFilemanager/blob/master/connectors/php/filemanager.php) and refering to the [dedicated wiki page](https://github.com/servocoder/RichFilemanager/wiki/Security-concern).
 
+Apache Configuration
+--------------------
+Disable buffering to allow large file downloads. Otherwise you get an memory exhaust exception. See http://stackoverflow.com/questions/6627952/why-does-readfile-exhaust-php-memory#12749468.
+
+<Directory "/your/connector/file/directory">
+     php_admin_value output_buffering "0"
+</Directory>
 
 MIT LICENSE
 -----------
